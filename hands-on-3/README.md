@@ -22,15 +22,20 @@ terraform plan
 terraform apply
 # go on the horizon dashboard and connect with terraform credentials
 # find your instance
-# if you are happy, destroy everything
-terraform destroy
 ```
+
+One can assert that it works by accessing the console (click on the instance then "console")
 
 _NOTE_: it's possible to SSH into the instance but at the moment, it takes a SSH jump through the openstack (devstack) instance. If the group is small enough, you can ask Mathieu to install a public key to the demo server.
 ```
 ssh -J user@[DEVSTACK-IP] -i ./.ssh/provisioning_private_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null core@[SERVER-IP]
 ```
-Without SSH, one can assert that it works by sending a reboot signal from the console, then edit the grub to add the `flatcar.autologin` parameter and once in the console `curl localhost`.
+
+To destroy the instance:
+```
+# if you are happy, destroy everything
+terraform destroy
+```
 
 # Resources
 

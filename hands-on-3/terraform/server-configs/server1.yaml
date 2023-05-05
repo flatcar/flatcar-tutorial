@@ -1,10 +1,8 @@
 variant: flatcar
 version: 1.0.0
-
 # This is a simple NGINX example.
 # Replace the below with your own config.
 # Refer to https://www.flatcar.org/docs/latest/provisioning/config-transpiler/configuration/ for more information.
-
 systemd:
   units:
     - name: nginx.service
@@ -23,3 +21,6 @@ systemd:
         RestartSec=5s
         [Install]
         WantedBy=multi-user.target
+kernel_arguments:
+  should_exist:
+    - flatcar.autologin
