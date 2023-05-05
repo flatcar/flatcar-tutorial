@@ -15,7 +15,7 @@ This is a bundle of hands-on-1 and hands-on-2 but it's not locally now and we wr
 cd terraform
 # init the terraform project locally
 terraform init
-# get the credentials from Mathieu
+# get the credentials from Mathieu and update the `terraform.tfvars` consequently
 # generate the plan and inspect it
 terraform plan
 # apply the plan
