@@ -29,9 +29,8 @@ $ docker run --rm -i quay.io/coreos/butane:latest < config.yaml > config.json
 ```
 * Download a Flatcar image (or reuse the zipped one from previous hands-on). NOTE: Ignition runs at first boot, it won't work if you reuse your previous boot image.
 ```
-wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu.sh
-wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img.bz2
-bzip2 -dk ./flatcar_production_qemu_image.img.bz2
+cp ../hands-on-1/flatcar_production_qemu_image.img.bz2 .
+bzip2 --decompress --keep ./flatcar_production_qemu_image.img.bz2
 chmod +x flatcar_production_qemu.sh
 ```
 * Start the image with Ignition configuration

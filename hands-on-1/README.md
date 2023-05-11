@@ -15,7 +15,7 @@ wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_producti
 # get the latest stable release for qemu
 wget https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_qemu_image.img.bz2
 # extract the downloaded image
-bzip2 -d flatcar_production_qemu_image.img.bz2
+bzip2 --decompress --keep flatcar_production_qemu_image.img.bz2
 # make the qemu helper executable
 chmod +x flatcar_production_qemu.sh
 # starts the flatcar image in console mode
