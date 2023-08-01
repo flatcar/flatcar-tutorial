@@ -13,15 +13,19 @@ This is a bundle of hands-on-1 and hands-on-2 but it's not locally now and we wr
 ```bash
 # go into the terraform directory
 cd terraform
+# download terraform
+wget https://releases.hashicorp.com/terraform/1.5.4/terraform_1.5.4_linux_amd64.zip
+unzip terraform_1.5.4_linux_amd64.zip
+rm terraform_1.5.4_linux_amd64.zip
 # update the config for creating index.html from previous hands-on
 vim server-configs/server1.yaml
 # init the terraform project locally
-terraform init
+./terraform init
 # get the credentials from Mathieu and update the `terraform.tfvars` consequently
 # generate the plan and inspect it
-terraform plan
+./terraform plan
 # apply the plan
-terraform apply
+./terraform apply
 # go on the horizon dashboard and connect with terraform credentials
 # find your instance
 ```
@@ -36,7 +40,7 @@ ssh -J user@[DEVSTACK-IP] -i ./.ssh/provisioning_private_key.pem -o StrictHostKe
 To destroy the instance:
 ```
 # if you are happy, destroy everything
-terraform destroy
+./terraform destroy
 ```
 
 # Resources
