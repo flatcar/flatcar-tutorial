@@ -8,6 +8,39 @@ Hello, the goal here is to:
 
 This is a bundle of hands-on-1 and hands-on-2 but it's not locally now and we write _everything_ as code.
 
+If you have your **own** OpenStack instance, you can apply the following diff to create the Flatcar image. Otherwise, proceed to the step-by-step as usual.
+```diff
+diff --git a/hands-on-3/terraform/compute.tf b/hands-on-3/terraform/compute.tf
+index 942de77..e8a81b0 100644
+--- a/hands-on-3/terraform/compute.tf
++++ b/hands-on-3/terraform/compute.tf
+@@ -22,9 +22,13 @@ resource "local_file" "provisioning_key_pub" {
+   file_permission      = "0440"
+ }
+
+-data "openstack_images_image_v2" "flatcar" {
+-  name        = "terraform-flatcar-stable"
+-  most_recent = true
++# We create the OpenStack image by importing directly from the release servers.
++resource "openstack_images_image_v2" "flatcar" {
++  name             = "flatcar-stable"
++  image_source_url = "https://stable.release.flatcar-linux.net/amd64-usr/current/flatcar_production_openstack_image.img.gz"
++  container_format = "bare"
++  disk_format      = "qcow2"
++  web_download     = true
+ }
+
+ # Get the flavor ID
+@@ -37,7 +41,7 @@ data "openstack_compute_flavor_v2" "flatcar" {
+ resource "openstack_compute_instance_v2" "instance" {
+   for_each  = toset(var.machines)
+   name      = "${var.cluster_name}-${each.key}-${random_id.flatcar-suffix.hex}"
+-  image_id  = data.openstack_images_image_v2.flatcar.id
++  image_id  = openstack_images_image_v2.flatcar.id
+   flavor_id = data.openstack_compute_flavor_v2.flatcar.id
+   key_pair  = openstack_compute_keypair_v2.provisioning_keypair.name
+```
+
 # Step-by-step
 
 ```bash
