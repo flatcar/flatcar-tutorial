@@ -21,7 +21,7 @@ storage:
   files:
     - path: /var/www/index.html
       contents:
-        inline: Hello from OSS North America
+        inline: Hello from FrOSCon 2023
 ```
 * Transpile the Butane configuration (`config.yaml`) to Ignition configuration (`config.json`) - it's possible to use Butane binary (https://coreos.github.io/butane/getting-started/#standalone-binary) or Docker image
 ```

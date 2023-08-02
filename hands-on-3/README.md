@@ -32,7 +32,7 @@ vim server-configs/server1.yaml
 
 One can assert that it works by accessing the console (click on the instance then "console")
 
-_NOTE_: it's possible to SSH into the instance but at the moment, it takes a SSH jump through the openstack (devstack) instance. If the group is small enough, you can ask Mathieu to install a public key to the demo server.
+_NOTE_: it's possible to SSH into the instance but at the moment, it takes a SSH jump through the openstack (devstack) instance. If the group is small enough, you can ask Mathieu or Kai to install a public key to the demo server.
 ```
 ssh -J user@[DEVSTACK-IP] -i ./.ssh/provisioning_private_key.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null core@[SERVER-IP]
 ```
