@@ -31,13 +31,14 @@ $ docker run --rm -i quay.io/coreos/butane:latest < config.yaml > config.json
 ```
 cp ../hands-on-1/flatcar_production_qemu_image.img.bz2 .
 bzip2 --decompress --keep ./flatcar_production_qemu_image.img.bz2
+cp ../hands-on-1/flatcar_production_qemu.sh .
 chmod +x flatcar_production_qemu.sh
 ```
 * Start the image with Ignition configuration
 ```
 ./flatcar_production_qemu.sh -i ./config.json -- -display curses
 ```
-* Once on the instance, assert nginx works corretly (`curl localhost` or `systemctl status nginx.service`)
+* Once on the instance, assert nginx works correctly (`curl localhost` or `systemctl status nginx.service`)
 
 # Resources
 
