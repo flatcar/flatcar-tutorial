@@ -86,3 +86,5 @@ To destroy the instance:
 ```
 asciinema play demo.cast
 ```
+
+or: https://asciinema.org/a/591442

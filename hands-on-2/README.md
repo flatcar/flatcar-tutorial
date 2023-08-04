@@ -50,3 +50,4 @@ chmod +x flatcar_production_qemu.sh
 ```
 asciinema play demo.cast
 ```
+or: https://asciinema.org/a/591440

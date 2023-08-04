@@ -50,3 +50,5 @@ curl localhost
 ```
 asciinema play demo.cast
 ```
+
+or: https://asciinema.org/a/591438
