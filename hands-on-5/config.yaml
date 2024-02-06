@@ -1,0 +1,16 @@
+variant: flatcar
+version: 1.0.0
+# TODO: Add the storage section to download the Podman sysext image from the remote location
+# and store it into /opt/extensions.
+storage:
+  files:
+    # WARNING: Do not use this in production - it is unsafe.
+    # NOTE: For rootless mode, you need to set /etc/subuid and /etc/subgid
+    - path: /etc/containers/policy.json
+      mode: 0644
+      contents:
+        source: https://raw.githubusercontent.com/containers/common/main/tests/policy.json
+    - path: /etc/containers/containers.conf
+      mode: 0644
+      contents:
+        source: https://raw.githubusercontent.com/containers/common/main/pkg/config/containers.conf
