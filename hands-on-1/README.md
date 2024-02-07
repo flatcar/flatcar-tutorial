@@ -22,6 +22,11 @@ chmod +x flatcar_production_qemu.sh
 ./flatcar_production_qemu.sh -- -display curses
 ```
 
+NOTE: start flatcar with a port forward to access the nginx service from your host
+``` bash
+./flatcar_production_qemu.sh -p 8080-:80,hostfwd=tcp::2222 -- -display curses
+```
+
 NOTE: it's possible to connect to the instance via SSH:
 ```bash
 # ~/.ssh/config
