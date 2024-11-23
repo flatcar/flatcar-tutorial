@@ -88,3 +88,19 @@ asciinema play demo.cast
 ```
 
 or: https://asciinema.org/a/591442
+
+## Instructions for Apple Silicon (M1/M2) Users
+
+If you're using an Apple Silicon Mac (M1/M2) and encounter this error:
+
+```plaintext
+Error: Incompatible provider version
+Provider registry.terraform.io/hashicorp/template v2.2.0 does not have a package 
+available for your current platform, darwin_arm64.
+```
+
+Replace the following files with their ARM-compatible versions:
+- Copy `provider.tf.arm` to `provider.tf`
+- Copy `compute.tf.arm` to `compute.tf`
+
+These ARM-compatible versions use the built-in templatefile function instead of the template provider, which resolves the ARM64 compatibility issue.
