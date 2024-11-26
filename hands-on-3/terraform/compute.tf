@@ -55,13 +55,12 @@ data "ct_config" "machine-ignitions" {
   strict   = true
   content  = file("${path.module}/server-configs/${each.key}.yaml")
   snippets = [
-    data.template_file.core_user.rendered
+    local.core_user
   ]
 }
 
-data "template_file" "core_user" {
-  template = file("${path.module}/core-user.yaml.tmpl")
-  vars = {
+locals {
+  core_user = templatefile("${path.module}/core-user.yaml.tmpl", {
     ssh_keys = jsonencode(concat(var.ssh_keys, [openstack_compute_keypair_v2.provisioning_keypair.public_key]))
-  }
+  })
 }
